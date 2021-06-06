@@ -3,8 +3,7 @@ import React,{useState} from 'react';
 import { StyleSheet, Text, View ,KeyboardAvoidingView ,TextInput , Platform ,
   TouchableOpacity ,Keyboard} from 'react-native';
 import Task from './components/Task';
-import { Icon } from 'react-native-elements'
-import dismissKeyboard from "react-native/Libraries/Utilities/dismissKeyboard";
+import Icon from "react-native-vector-icons/FontAwesome";
 
 export default function App() {
   const [task , setTask] = useState();
@@ -19,7 +18,7 @@ export default function App() {
     console.log(task);
   }
 
-  const completeTasl = (index) => {
+   const completeTask = (index) => {
     let itemsCopy = [...taskItems];
     itemsCopy.splice(index,1);
     setTaskItems(itemsCopy);
@@ -34,8 +33,11 @@ export default function App() {
         <View style={styles.items}>
           { taskItems.map((item,index) => {
             return (
-                <TouchableOpacity  key={index} onPress={() => completeTasl(index)}>
+                <TouchableOpacity  key={index} >
+                  <View style={styles.item1}>
                   <Task text = {item} />
+                    <Icon  name="trash" size={22} color="#900" onPress={() => completeTask(index)}/>
+                  </View>
                 </TouchableOpacity>
                 )
             })
@@ -109,5 +111,19 @@ const styles = StyleSheet.create({
   addtext:{
 
   },
+  objectStyle:{
+    flexDirection : 'row',
+    justifyContent : 'space-around',
+    alignItems : 'center'
+  },
+  item1:{
+    backgroundColor:'#FFF',
+    padding : 15,
+    borderRadius:10,
+    flexDirection : 'row',
+    alignItems : 'center',
+    justifyContent : 'space-between',
+    marginBottom : 20,
+  }
 });
 

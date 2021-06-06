@@ -1,17 +1,19 @@
 import React from "react";
 import {View,Text,StyleSheet , TouchableOpacity} from "react-native";
+import Icon from 'react-native-vector-icons/FontAwesome';
+import completeTask from '../App';
 
 const Task = (props) => {
+
+
     return (
-        <View style={styles.item}>
+        // <View style={styles.item}>
             <View style={styles.itemLeft}>
                 <TouchableOpacity style={styles.square}/>
                 <Text style={styles.itemText}>{props.text}</Text>
             </View>
-            <View style={styles.circular}>
-
-            </View>
-        </View>
+            // <Icon  name="trash" size={22} color="#900" onPress={() => completeTask(props.key)}/>
+        // </View>
     )
 }
 
