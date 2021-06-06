@@ -34,7 +34,7 @@ export default function App() {
           { taskItems.map((item,index) => {
             return (
                 <TouchableOpacity  key={index} >
-                  <View style={styles.item1}>
+                  <View style={styles.itemtask}>
                   <Task text = {item} />
                     <Icon  name="trash" size={22} color="#900" onPress={() => completeTask(index)}/>
                   </View>
@@ -116,7 +116,7 @@ const styles = StyleSheet.create({
     justifyContent : 'space-around',
     alignItems : 'center'
   },
-  item1:{
+  itemtask:{
     backgroundColor:'#FFF',
     padding : 15,
     borderRadius:10,
